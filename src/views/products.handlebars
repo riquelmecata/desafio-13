@@ -1,0 +1,55 @@
+<div class="container text-center">
+    <ul class="nav justify-content-center">
+        <li class="nav-item my-2">
+            <a class="btn btn-outline-dark" href="http://localhost:8080/products?page=1&limit=10">Productos</a>
+        </li>
+        <li class="nav-item my-2 mx-2">
+            <a class="btn btn-outline-dark" href="http://localhost:8080/carts/651cd552fef520effdaae934">Carrito</a>
+        </li>
+    </ul>
+</div>
+
+<h4>Bienvenido: {{first_name}}</h4><p>Rol: {{role}}</p>
+<button class="btn btn-danger" id="logout">Cerrar sesión</button>
+
+{{#if productos.length }}
+<div class="justify-content-center row">
+    {{#each productos}}
+    <div class="card m-2 col-2">
+        <div class="card-body">
+             <img src="{{thumbnail}}" class="card-img-top mb-3" alt="imagen producto">
+            <h5 class="card-title">{{title}}</h5>
+            <h4 class="card-title">${{price}}</h4>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text"><small class="text-body-secondary">
+                    Codigo: {{code}}
+                    Stock: {{stock}}
+            </small></p> 
+           <div class="row justify-content-center">
+<div class="d-flex justify-content-center align-items-center">
+    <a href='http://localhost:8080/products/{{_id}}' class="text-decoration-none"><button class="btn btn-outline-primary mx-2">Ver Detalles</button></a>
+    <button class="btn btn-outline-success mx-2" data-id={{_id}}>Agregar al carrito</button>
+</div>
+</div>
+            
+        </div>
+    </div>
+    {{/each}}
+
+
+<div class="text-center">
+    {{#if hasPrevPage}}
+        <a href={{prevLink}}><button class="btn btn-warning mb-4 mx-1">Página anterior</button></a>
+    {{/if}}
+    {{#if hasNextPage}}
+        <a href={{nextLink}}><button class="btn btn-warning mb-4">Página siguiente</button></a>
+    {{/if}}
+</div>
+
+{{else}}
+
+<h2>Sin productos.</h2>
+{{/if}}
+</div>
+
+<script src="/js/index.js"></script>

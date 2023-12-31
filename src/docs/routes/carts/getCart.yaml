@@ -1,0 +1,34 @@
+paths:
+    /api/carts/{cid}:
+        get:
+            summary: Obtener un corrito por ID
+            tags:
+                - Carts
+            parameters:
+                -   in: path
+                    name: cid
+                    schema:
+                        type: string
+                        example: 6567c74bf2e6fda47e261ecd
+                    description: Cart ID
+                    required: true
+            responses:
+                "200":
+                    description: Carrito encontrado
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                            example:
+                                id: 6567c74bf2e6fda47e261ecd
+                                products: 
+                                    -   id: 6590cb7005b9c28719be542e
+                                        quantity: 3
+                                    -   id: 6590cba53cafde3512dde9af
+                                        quantity: 1
+                                    -   id: 6590cbb2439385ec5b57e5af
+                                        quantity: 2
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

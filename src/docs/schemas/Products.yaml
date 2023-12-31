@@ -1,0 +1,37 @@
+#Products
+components:
+    schemas:
+        Products:
+            type: object
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+                description:
+                    type: string
+                category:
+                    type: string
+                code:
+                    type: string
+                stock:
+                    type: number
+                price:
+                    type: number
+                status:
+                    type: boolean
+                thumbnail:
+                    type: string
+                owner:
+                    type: string
+            example:
+                id: 123abc456def789ghi
+                title: Chaqueta de Invierno
+                description: Chaqueta acolchada para el invierno, con capucha desmontable
+                category: Chaquetas
+                code: "01"
+                stock: 20
+                price: 1750
+                status: true
+                thumbnail: https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/71SeGBIGwEL._AC_UY1000_.jpg
+                owner: mail@mail.com

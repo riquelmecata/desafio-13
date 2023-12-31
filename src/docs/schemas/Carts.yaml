@@ -1,0 +1,19 @@
+components:
+    schemas:
+        Carts:
+            type: object
+            properties:
+                id:
+                    type: string
+                products:
+                    type: Array
+                    items:
+                        id: string
+                        quantity: integer
+            example:
+                id: 651cd552fef520effdaae934
+                products:
+                    -   id: 6590cc4f18858873edbfa57e
+                        quantity: 1
+                    -   id: 6590cc5401b8af8b1fb6baec
+                        quantity: 2

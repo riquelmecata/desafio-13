@@ -1,0 +1,25 @@
+paths:
+    /api/carts/{cid}/purchase:
+        post:
+            summary: Comprar carrito, el usuario debe haber iniciado sesión
+            tags:
+                - Carts
+            parameters:
+                -   in: path
+                    name: cid
+                    schema:
+                        type: string
+                        example: 651cd552fef520effdaae934
+                    description: Cart ID
+                    required: true
+            responses:
+                "200":
+                    description: Ticket generado con éxito
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

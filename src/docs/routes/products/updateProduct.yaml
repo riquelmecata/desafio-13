@@ -1,0 +1,34 @@
+paths:
+    /api/products/{pid}:
+        put:
+            summary: Actualizar producto por su ID, debe ser admin
+            tags:
+                - Products
+            parameters:
+                -   in: path
+                    name: pid
+                    schema:
+                        type: string
+                        example: 652b45b4df9a3862ca307438
+                    description: Product ID
+                    required: true
+                -   in: body
+                    name: Updated fields
+                    schema:
+                        type: object
+                        example:
+                            product:
+                                stock: 10
+                    required: true
+            responses:
+                "200":
+                    description: Product updated
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Products'
+                            example: Producto con el ID 652b45b4df9a3862ca307438 actualizado con exito
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

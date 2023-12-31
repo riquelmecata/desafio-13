@@ -1,0 +1,36 @@
+paths:
+    /api/products/{pid}:
+        get:
+            summary: Obtener un producto por ID
+            tags:
+                - Products
+            parameters:
+                -   in: path
+                    name: pid
+                    schema:
+                        type: string
+                        example: 652b4603df9a3862ca30743c
+                    description: Product ID
+                    required: true
+            responses:
+                "200":
+                    description: Product found
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Products'
+                            example:
+                                id: 652b4603df9a3862ca30743c
+                                title: Pantalón Vaquero Ajustado
+                                description: Un pantalón vaquero ajustado de alta calidad, perfecto para un look moderno y casual.
+                                category: pantalones
+                                code: "PAN001"
+                                stock: 25
+                                price: 1500
+                                status: true
+                                thumbnail: https://i.blogs.es/5034f8/liujo-1-/450_1000.jpeg
+                                owner: admin
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

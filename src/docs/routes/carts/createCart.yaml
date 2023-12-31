@@ -1,0 +1,17 @@
+paths:
+    /api/carts/:
+        post:
+            summary: Crear un carrito
+            tags:
+                - Carts
+            responses:
+                "200":
+                    description: Carrito creado exitosamente 
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

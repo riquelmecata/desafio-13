@@ -1,0 +1,26 @@
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mx-auto">
+            {{#if producto }}
+            <div class="mx-5">
+                <img src="{{producto.thumbnail}}" class="img-fluid rounded-start" />
+                <h5 class="card-title">{{producto.title}}</h5>
+                <p>Id producto: {{producto._id}}</p>
+                <p class="card-text">Description: {{producto.description}}</p>
+                <p>Precio: ${{producto.price}}</p>
+                <p>Codigo: {{producto.code}}</p>
+                <p>Stock: {{producto.stock}}</p>
+                <p>Activo: {{producto.status}}</p>
+                <button class="btn btn-outline-success addToCart" data-id={{producto._id}}>Agregar al carrito</button>
+                
+                <button class="btn btn-outline-success deleteProduct" data-id={{producto._id}}>Eliminar producto</button>
+           
+            </div>
+            {{else}}
+            <h2>No Existe el producto</h2>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="/js/product.js"></script>
